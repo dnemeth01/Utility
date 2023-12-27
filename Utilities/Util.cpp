@@ -66,8 +66,8 @@ bool static KillProcess() {
 		if (aProcesses[i] != 0)
 			PrintProcessNameAndID(aProcesses[i]);
 
-
-	cout << "Process name to kill:";
+	cout << "________" << endl;
+	cout << "Process:";
 	wcin >> pName;
 
 	if (_tcscmp(pName, L"-1") == 0)
@@ -86,11 +86,12 @@ bool static EmptyCB() {
 	return false;
 }
 
-void static print() {
+bool static print() {
 	int a = 0;
 	cout << "Utilities" << endl;
 	cout << "1:Empty clipboard" << endl;
 	cout << "2:Kill a process by name" << endl;
+	cout << "0:Exit" << endl;
 	cout << "Select:";
 	cin >> a;
 
@@ -107,13 +108,15 @@ void static print() {
 		else
 			cout << "Failed to kill process!" << endl;
 		break;
+	default:
+		return false;
+		break;
 	}
 }
 
 int main()
 {
-	while (true)
-		print();
+	while (print());
 
 	return 0;
 }
