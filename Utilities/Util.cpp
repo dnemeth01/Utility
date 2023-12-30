@@ -67,7 +67,7 @@ bool static KillProcess() {
 			PrintProcessNameAndID(aProcesses[i]);
 
 	cout << "________" << endl;
-	cout << "Process:";
+	cout << "Process(-1:exit):";
 	wcin >> pName;
 
 	if (_tcscmp(pName, L"-1") == 0)
@@ -76,6 +76,7 @@ bool static KillProcess() {
 	for (unsigned int i = 0; i < cProcesses; i++)
 		if (aProcesses[i] != 0)
 			KillProcessByName(aProcesses[i], pName);
+	return true;
 }
 
 bool static EmptyCB() {
